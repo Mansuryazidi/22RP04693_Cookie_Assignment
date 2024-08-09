@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username or Email Form</title>
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        window.onload = function() {
+            const userInput = getCookie('userInput');
+            if (userInput) {
+                document.getElementById('userInput').value = userInput;
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Enter Your Username or Email</h1>
+    <form action="storeCookie" method="post">
+        <label for="userInput">Username or Email:</label>
+        <input type="text" id="userInput" name="userInput" value="">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
