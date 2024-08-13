@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username/Email Entry</title>
+    <script>
+       
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+     
+        window.onload = function() {
+            const userInput = getCookie('userInput');
+            if (userInput) {
+                document.getElementById('userInput').value = userInput;
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Enter Your Username or Email</h1>
+    <form action="SessionServlet" method="post">
+        <input type="text" name="userInput" id="userInput" placeholder="Username or Email">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
