@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <script>
+        function checkSession() {
+            // Check if session exists
+            const username = localStorage.getItem('username');
+            if (!username) {
+                window.location.href = "login.html";
+            } else {
+                document.getElementById('welcomeMessage').innerText = `Welcome, ${username}!`;
+            }
+        }
+    </script>
+</head>
+<body onload="checkSession()">
+    <h2 id="welcomeMessage">Welcome, User!</h2>
+    <form action="logout" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>
